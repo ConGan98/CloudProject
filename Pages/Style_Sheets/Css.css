@@ -1,5 +1,5 @@
 body{
-	
+
   background-color:AliceBlue;
   font-style: cursive;
 }
@@ -22,7 +22,7 @@ body{
 .inner-divi {
    display: flex;
     flex-direction: row;
-    
+
     background-color:#5c5541;
     border: 5px solid black;
     border-radius: 25px;
@@ -31,10 +31,10 @@ body{
 .inner-inner-divi {
    display: flex;
     position: center;
-    
+
     width:33%;
     flex-direction: column;
-    background-color:#7a776e;
+    background-color:green;
     border: 2px solid black;
      margin: 35px;
     border-radius: 25px;
