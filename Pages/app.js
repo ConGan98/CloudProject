@@ -7,7 +7,7 @@ http.createServer(function (request, response) {
     console.log('request ', request.url);
     var filePath = '.' + request.url;
     if (filePath == './') {
-        filePath = '../Pages/HtmlPages/landingPage.html';
+        filePath = '../Pages/HtmlPages/WelcomePage.html';
     }
     var extname = String(path.extname(filePath)).toLowerCase();
     var mimeTypes = {
