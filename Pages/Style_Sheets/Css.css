@@ -1,42 +1,41 @@
 body{
 
-  background-color:AliceBlue;
+  background-color:grey;
   font-style: cursive;
+
 }
 
 .main-container {
-	display: flex;
-	flex-direction: row;
-	background-color:#999999;
-    border: 0px solid black;
-    border-radius: 25px;
+		display: flex;
+		flex-direction: row;
+		background-color:red;
+  	border: 0px solid black;
+  	border-radius: 25px;
 }
 .inner-div {
     display: flex;
     flex-direction: column;
-    background-color:#999999;
+    background-color:black;
     border: 0px solid black;
-    border-radius: 25px;
+    border-radius: 10px;
   }
 
 .inner-divi {
-   display: flex;
+    display: flex;
     flex-direction: row;
-
-    background-color:#5c5541;
-    border: 5px solid black;
-    border-radius: 25px;
+    background-color:#f2f2dc;
+    border: 2px solid black;
+    border: 25px;
 
 }
 .inner-inner-divi {
-   display: flex;
+    display: flex;
     position: center;
-
     width:33%;
     flex-direction: column;
-    background-color:green;
-    border: 2px solid black;
-     margin: 35px;
-    border-radius: 25px;
+    background-color:white;
+    border: 2px solid red;
+    margin: 35px;
+    border: 25px;
 
 }
