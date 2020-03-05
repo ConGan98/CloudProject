@@ -1,42 +1,29 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
-var url = require('url');
+var mongo = require('mongodb').MongoClient;
+var objectId = require('mongodb').ObjectID;
+var assert = require('assert');
 
-mongoose.connect('localhost:27017/test');
-var Schema = mongoose.Schema;
+var url = 'mongodb://localhost:27017/productDb';
 
-var scriptSchema = new Schema({
-  ProductName: String,
-  id: String,
-  net:  String
-// });
-
-var theScript = mongoose.model('test', scriptSchema);
-var humidity = 0;
+/* GET home page. */
+router.get('/', function(req, res, next) {
+  res.render('index');
+});
 
 router.get('/', function(req, res, next) {
-//  theScript.find()
-//      .then(function(doc) {
-  //      console.log("Array length is: " + doc.length);
-        res.render('index', {title: "My Page"});
-  //    });
+  var resultArray = [];
+  mongo.connect(url, function(err, db) {
+    assert.equal(null, err);
+    var cursor = db.collection('categories').find();
+    cursor.forEach(function(doc, err) {
+      assert.equal(null, err);
+      resultArray.push(doc);
+    }, function() {
+      db.close();
+      res.render('index', {items: resultArray});
+    });
+  });
 });
-
-
-
-router.get('/getHumidity', function(req, res, next) {
-  //  console.log(req.url);
-    var q = url.parse(req.url, true);
-//    console.log(q);
-    console.log(q.query.myName);
-    console.log(q.query.myNum);
-  res.send("" + humidity++);
-});
-
-router.post('/login', function(req, res, next) {
-  res.render('loginResponse', {title: "Login status", yourUsername: req.body.username, yourPassword: req.body.passwd});
-});
-
 
 module.exports = router;
