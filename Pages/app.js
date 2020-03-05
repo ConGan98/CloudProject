@@ -1,8 +1,14 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
 var path = require('path');
+var favicon = require('serve-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var hbs = require('express-handlebars');
 
+var routes = require('./routes/index');
 
+var app = express();
 http.createServer(function (request, response) {
     console.log('request ', request.url);
     var filePath = '.' + request.url;
